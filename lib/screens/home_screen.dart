@@ -1,4 +1,4 @@
-import 'package:daftar_wisata/datas/data_wisata.dart';
+import 'package:daftar_wisata/datas/data_tajwid.dart';
 import 'package:daftar_wisata/screens/data_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +9,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<DataWisata> _dataWisataList = List<DataWisata>();
+  List<DataTajwid> _dataTajwidList = List<DataTajwid>();
   double _screenWidthAdjusment;
 
   @override
   void initState() {
-    _dataWisataList = DataWisata().createDataWisata();
+    _dataTajwidList = DataTajwid().createDataTajwid();
     super.initState();
   }
 
@@ -27,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Wisata Indonesia")),
+      appBar: AppBar(title: Text("Tajwid")),
       body: SafeArea(
         child: ListView.builder(
             itemExtent: 190.0,
-            itemCount: _dataWisataList.length,
+            itemCount: _dataTajwidList.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {
@@ -43,13 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             Animation<double> animation,
                             Animation<double> secondaryAnimation) {
                           return DetailScreen(
-                              dataWisata: DataWisata(
-                                  title: _dataWisataList[index].title,
+                              dataTajwid: DataTajwid(
+                                  title: _dataTajwidList[index].title,
                                   description:
-                                      _dataWisataList[index].description,
-                                  image: _dataWisataList[index].image,
+                                      _dataTajwidList[index].description,
+                                  image: _dataTajwidList[index].image,
                                   materialColor:
-                                      _dataWisataList[index].materialColor));
+                                  _dataTajwidList[index].materialColor));
                         },
                         transitionsBuilder: (BuildContext context,
                             Animation<double> animation,
@@ -71,9 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Stack(
                     children: [
                       Hero(
-                        tag: 'background' + _dataWisataList[index].title,
+                        tag: 'background' + _dataTajwidList[index].title,
                         child: Container(
-                          color: _dataWisataList[index].materialColor,
+                          color: _dataTajwidList[index].materialColor,
                         ),
                       ),
                       Positioned(
@@ -81,9 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         left: 0.0,
                         right: 0.0,
                         child: Hero(
-                          tag: 'image' + _dataWisataList[index].title,
+                          tag: 'image' + _dataTajwidList[index].title,
                           child: Image.network(
-                            _dataWisataList[index].image,
+                            _dataTajwidList[index].image,
                             height: 80.0,
                             fit: BoxFit.fitWidth,
                           ),
@@ -94,11 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         left: 16.0,
                         width: _screenWidthAdjusment,
                         child: Hero(
-                          tag: 'Text' + _dataWisataList[index].title,
+                          tag: 'Text' + _dataTajwidList[index].title,
                           child: Material(
                             color: Colors.transparent,
                             child: Text(
-                              _dataWisataList[index].title,
+                              _dataTajwidList[index].title,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -112,11 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         top: 118.0,
                         width: _screenWidthAdjusment,
                         child: Hero(
-                          tag: 'subtitle' + _dataWisataList[index].title,
+                          tag: 'subtitle' + _dataTajwidList[index].title,
                           child: Material(
                             color: Colors.transparent,
                             child: Text(
-                              _dataWisataList[index].description,
+                              _dataTajwidList[index].description,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),

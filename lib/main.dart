@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Wisata App',
+      title: 'Tajwid App',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          canvasColor: Colors.blue.shade100,
+          primarySwatch: Colors.green,
+          canvasColor: Colors.green.shade100,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       home: HomeScreen(),
     );

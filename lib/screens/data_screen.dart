@@ -1,22 +1,22 @@
-import 'package:daftar_wisata/datas/data_wisata.dart';
+import 'package:daftar_wisata/datas/data_tajwid.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
-  final DataWisata dataWisata;
+  final DataTajwid dataTajwid;
 
-  const DetailScreen({Key key, this.dataWisata}) : super(key: key);
+  const DetailScreen({Key key, this.dataTajwid}) : super(key: key);
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  DataWisata _dataWisata;
+  DataTajwid _dataTajwid;
   double _screenWidth;
 
   @override
   void initState() {
-    _dataWisata = widget.dataWisata;
+    _dataTajwid = widget.dataTajwid;
     super.initState();
   }
 
@@ -30,16 +30,16 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${_dataWisata.title}'),
-        backgroundColor: _dataWisata.materialColor,
+        title: Text('${_dataTajwid.title}'),
+        backgroundColor: _dataTajwid.materialColor,
       ),
       body: SafeArea(
         child: Stack(
           children: [
             Hero(
-              tag: 'background' + _dataWisata.title,
+              tag: 'background' + _dataTajwid.title,
               child: Container(
-                color: _dataWisata.materialColor,
+                color: _dataTajwid.materialColor,
               ),
             ),
             Positioned(
@@ -48,9 +48,9 @@ class _DetailScreenState extends State<DetailScreen> {
               right: 0.0,
               height: 230.0,
               child: Hero(
-                tag: 'image' + _dataWisata.title,
+                tag: 'image' + _dataTajwid.title,
                 child: Image.network(
-                  _dataWisata.image,
+                  _dataTajwid.image,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -60,11 +60,11 @@ class _DetailScreenState extends State<DetailScreen> {
               left: 16.0,
               width: _screenWidth - 64.0,
               child: Hero(
-                tag: 'Text' + _dataWisata.title,
+                tag: 'Text' + _dataTajwid.title,
                 child: Material(
                   color: Colors.transparent,
                   child: Text(
-                    _dataWisata.title,
+                    _dataTajwid.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style:
@@ -78,11 +78,11 @@ class _DetailScreenState extends State<DetailScreen> {
               top: 288.0,
               width: _screenWidth - 64.0,
               child: Hero(
-                tag: 'subtitle' + _dataWisata.title,
+                tag: 'subtitle' + _dataTajwid.title,
                 child: Material(
                   color: Colors.transparent,
                   child: Text(
-                    _dataWisata.description,
+                    _dataTajwid.description,
                   ),
                 ),
               ),
